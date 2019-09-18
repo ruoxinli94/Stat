@@ -1,0 +1,6 @@
+# Power analysis is for calculating the required sample size of an experienment 
+# given the target confidence level (alpha, 1-beta) and effect size
+
+'''{r}
+install.packages
+'''
