@@ -9,3 +9,4 @@ lines(lowess(wt,mpg),col = "salmon",lwd=1,lty = 2)
 ```
 [lowess() function adds a smoothed line.](https://www.rdocumentation.org/packages/gplots/versions/3.0.1.1/topics/lowess)
 
+![image](https://user-images.githubusercontent.com/26484899/65297839-43483280-db37-11e9-9bb6-c41be7377de8.png)
