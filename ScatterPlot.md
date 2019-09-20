@@ -9,4 +9,5 @@ lines(lowess(wt,mpg),col = "salmon",lwd=1,lty = 2)
 ```
 [lowess() function adds a smoothed line.](https://www.rdocumentation.org/packages/gplots/versions/3.0.1.1/topics/lowess)
 
-![image](https://github.com/ruoxinli94/Stat/blob/master/image/xy-scatter.png)
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/xy-scatter.png" alt="X-Y Scatter Plot" width=450 height=350>
+
