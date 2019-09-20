@@ -1,4 +1,4 @@
-###Power Analysis with R
+### Power Analysis with R
 
 ```R
 #code here 
