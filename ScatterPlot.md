@@ -29,6 +29,23 @@ lines(lowess(wt,mpg),col = "salmon",lwd=1,lty = 2)
 There are four basic ways to plot scatter matrixs.
 - pairs() function, built in function
 ```R
-pairs(~mpg+disp+drat+wt,data=mtcars,main = 'Basic Scatter Plot Matrix')
+pairs(~mpg+disp+drat+wt,data=mtcars,main = 'Basic Scatter Plot Matrix',lower.panel = NULL)
 ```
 <img src="https://github.com/ruoxinli94/Stat/blob/master/image/ScatterMatrixPairs.png" alt = "ScatterMatrixPairs" width = 450, height = 350>
+In the scatter plot matrix, any pair of the variables seems correlated with each other. 
+
+##### We can add linear and loess fit lines to any of the plot in the matrix. 
+
+- [scatterplotMatrix() in car package](https://www.rdocumentation.org/packages/car/versions/2.1-4/topics/scatterplotMatrix)
+```R
+library(car)
+library(RColorBrewer)
+my_colors <- brewer.pal(nlevels(as.factor(mtcars$cyl)), "Dark2")
+scatterplotMatrix(~mpg+disp+drat+wt|cyl, data=mtcars, col = my_colors, spread = FALSE, 
+                  diagonal=list(method ="histogram", breaks="FD"),
+                  pch=c(1,2,3),main = 'Scatter Plot Matrix using Car package')
+```
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/ScatterPlotMatrixinCar.png" alt = "ScatterPlotMatrixinCar" width =450, height=350>
+
+
+
