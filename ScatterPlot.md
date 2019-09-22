@@ -72,8 +72,12 @@ c1 <- matrix(rnorm(n,mean = 0,sd = .5),ncol = 2)
 c2 <- matrix(rnorm(n, mean = 5, sd = 2), ncol = 2)
 data <- as.data.frame(rbind(c1,c2))
 names(data) <- c("x","y")
-with(data,
-     plot(x,y,pch=19,main="simple scatter plot with 10000 observations"))
+library(hexbin)
+par(mfcol = c(1,2))
+plot(data$x,data$y,pch=19,main="Simple plot")
+smoothScatter(data$x,data$y,main="Smooth densities")
+plot(hexbin(data$x,data$y),main="Hexagonal plot")
 ```
-<img src="https://github.com/ruoxinli94/Stat/blob/master/image/SimpleSPwithLargeData.png" alt = "SimpleSPwithLargeData" width =450, height=350>
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/SimpleSPwithLargeData.png" alt = "SimpleSPwithLargeData" width =800, height=350>
+<p align = "center"><img src="https://github.com/ruoxinli94/Stat/blob/master/image/hexplot.png" alt = "hex" width =450, height=350></p>
 
