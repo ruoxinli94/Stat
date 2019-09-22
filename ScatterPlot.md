@@ -1,5 +1,19 @@
 Scatter plot is the basic plot of all visualizations. Usually scatter plot can provide a overall basic understanding of the data. 
 Scatter plot can be build from the basic x-y plot to more advanced scatter plots matrix, scatter plot density, and 3D plots.
+
+Use the built in dataset mtcars to create scatter plots below:
+- mpg	Miles/(US) gallon
+- cyl	Number of cylinders
+- disp	Displacement (cu.in.)
+- hp	Gross horsepower
+- drat	Rear axle ratio
+- wt	Weight (1000 lbs)
+- qsec	1/4 mile time
+- vs	Engine (0 = V-shaped, 1 = straight)
+- am	Transmission (0 = automatic, 1 = manual)
+- gear	Number of forward gears
+- carb	Number of carburetors
+
 ### Basic x-y plot
 ```R
 attach(mtcars)
@@ -11,3 +25,10 @@ lines(lowess(wt,mpg),col = "salmon",lwd=1,lty = 2)
 
 <img src="https://github.com/ruoxinli94/Stat/blob/master/image/xy-scatter.png" alt="X-Y Scatter Plot" width=450 height=350>
 
+### Scatter plot matrixs
+There are four basic ways to plot scatter matrixs.
+- pairs() function, built in function
+```R
+pairs(~mpg+disp+drat+wt,data=mtcars,main = 'Basic Scatter Plot Matrix')
+```
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/ScatterMatrixPairs.png" alt = "ScatterMatrixPairs" width = 450, height = 350>
