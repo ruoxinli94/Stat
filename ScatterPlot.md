@@ -26,7 +26,6 @@ lines(lowess(wt,mpg),col = "salmon",lwd=1,lty = 2)
 <img src="https://github.com/ruoxinli94/Stat/blob/master/image/xy-scatter.png" alt="X-Y Scatter Plot" width=450 height=350>
 
 ### Scatter plot matrixs
-There are four basic ways to plot scatter matrixs.
 - pairs() function, built in function
 ```R
 pairs(~mpg+disp+drat+wt,data=mtcars,main = 'Basic Scatter Plot Matrix',lower.panel = NULL)
@@ -62,5 +61,19 @@ myorder <- order.single(data.corr)
 cpairs(data, myorder, panel.colors = mycolor, gap = 0.5, 
        main = "Variables ordered and colored by correlation")
 ```
-<img src="https://github.com/ruoxinli94/Stat/blob/master/image/cpaires_gclus.png" alt = "ScatterPlotMatrixinCar" width =450, height=350>
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/cpaires_gclus.png" alt = "cpaires_gclus" width =450, height=350>
+
+### High-density scatter plots
+simulate the data and perform simple scatter plot
+```R
+set.seed(1234)
+n<-10000
+c1 <- matrix(rnorm(n,mean = 0,sd = .5),ncol = 2)
+c2 <- matrix(rnorm(n, mean = 5, sd = 2), ncol = 2)
+data <- as.data.frame(rbind(c1,c2))
+names(data) <- c("x","y")
+with(data,
+     plot(x,y,pch=19,main="simple scatter plot with 10000 observations"))
+```
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/SimpleSPwithLargeData.png" alt = "SimpleSPwithLargeData" width =450, height=350>
 
