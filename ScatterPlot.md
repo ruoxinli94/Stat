@@ -32,7 +32,10 @@ There are four basic ways to plot scatter matrixs.
 pairs(~mpg+disp+drat+wt,data=mtcars,main = 'Basic Scatter Plot Matrix',lower.panel = NULL)
 ```
 <img src="https://github.com/ruoxinli94/Stat/blob/master/image/ScatterMatrixPairs.png" alt = "ScatterMatrixPairs" width = 450, height = 350>
-In the scatter plot matrix, any pair of the variables seems correlated with each other. 
+In the scatter plot matrix, any pair of the variables seems correlated with each other. Chech the correlation, the lowest correlation is about 0.68.
+```R
+cor(mtcars[c("mpg","wt","disp","drat")])
+```
 
 ##### We can add linear and loess fit lines to any of the plot in the matrix. 
 
@@ -47,5 +50,17 @@ scatterplotMatrix(~mpg+disp+drat+wt|cyl, data=mtcars, col = my_colors, spread = 
 ```
 <img src="https://github.com/ruoxinli94/Stat/blob/master/image/ScatterPlotMatrixinCar.png" alt = "ScatterPlotMatrixinCar" width =450, height=350>
 
+- [cpairs() in gclus package](https://www.rdocumentation.org/packages/gclus/versions/1.3.2/topics/cpairs) <br/>
+The variables can be ordered and colored by the correlation using the gclus package. 
 
+```R
+library(gclus)
+data <- mtcars[c("mpg","wt","disp","drat")]
+data.corr <- abs(cor(data))
+mycolor <- dmat.color(data.corr)
+myorder <- order.single(data.corr)
+cpairs(data, myorder, panel.colors = mycolor, gap = 0.5, 
+       main = "Variables ordered and colored by correlation")
+```
+<img src="https://github.com/ruoxinli94/Stat/blob/master/image/cpaires_gclus.png" alt = "ScatterPlotMatrixinCar" width =450, height=350>
 
